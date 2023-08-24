@@ -1,11 +1,20 @@
 import './App.css';
 import { Paths } from './Routes/Routes';
 
+import {
+  useContext
+} from "react"
+
+import { CountriesContext } from './Contexts/DataContext/DataContext';
+
 function App() {
+  const context = useContext(CountriesContext)
+
+  console.log(context);
+
   return (
     <div
-      className="App font-text text-2xl min-h-screen min-w-screen justify-center items-center
-      bg-gradient-to-bl from-slate-300 via-gray-400 to-gray-500 flex flex-col text-amber-800">
+      className="bg-very-dark-blue text-white h-full min-h-screen">
       <Paths />
     </div>
   );
