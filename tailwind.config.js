@@ -4,15 +4,18 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],  theme: {
     fontFamily : {
-      main : ['Work Sans', 'sans-serif'],
-      headings : ['Archivo', 'sans-serif'],
-      text : ['Ranade', 'sans-serif']
+      text : ['Roboto Mono', 'monospace']
     },
     screens: {
       'mobile' : '375px',
       'tablet': '640px',
       'laptop': '1024px',
-      'desktop': '1280px',
+      'desktop': '1440px',
+    },
+    colors: {
+      'very-dark-blue' : 'hsl(207, 26%, 17%)',
+      'dark-blue' : 'hsl(209, 23%, 22%)',
+      'white' : 'hsl(0, 0%, 100%)',
     },
     extend: {},
   },
