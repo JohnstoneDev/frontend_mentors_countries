@@ -1,17 +1,22 @@
-import SampleImage from "../../Assets/rest-countries-api-with-color-theme-switcher-master/design/desktop-preview.jpg"
+import { Link } from "react-router-dom"
 
-export const ImageCard = () => {
+import { SplitNumber } from "../../Actions/FindCountry"
+import { HeadingWithSpan } from "../CountryInfo/SingleCountryCard"
+
+export const ImageCard = ({ flag, name, population, region, capital, id }) => {
 	return (
-		<div className="bg-dark-blue flex flex-col gap-3 h-fit m-6 w-[300px] rounded hover:shadow-2xl">
-			<img src={SampleImage} alt="" className="h-[200px] w-[300px] object-cover"/>
-			<section className="p-4 flex flex-col text-left gap-4">
-				<h2 className="font-semibold">Larger Text </h2>
-				<section className="">
-					<h2> Some Text : Described Here </h2>
-					<h2> Some Text : Described Here </h2>
-					<h2> Some Text : Described Here </h2>
+		<div className="rounded-lg m-2 flex flex-col h-[450px] max-w-[300px] bg-dark-blue shadow-md text-sm">
+			<img src={flag} alt="" className="object-cover min-h-[200px] max-h-[200px] max-w-[300px] rounded-t-lg"/>
+			<Link to={`/country/${id}`}>
+				<section className="flex flex-col gap-6 p-2.5">
+					<h3 className="font-extrabold text-ellipsis text-xl leading-loose tracking-wider">{name}</h3>
+					<article className="font-regular flex flex-col gap-2 space-y-2">
+						<HeadingWithSpan descriptor={"Population"} info={SplitNumber(population)} />
+						<HeadingWithSpan descriptor={"Region"} info={SplitNumber(region)} />
+						<HeadingWithSpan descriptor={"Capital"} info={capital} />
+				</article>
 				</section>
-			</section>
+			</Link>
 		</div>
 	)
 }
