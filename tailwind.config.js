@@ -4,7 +4,7 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],  theme: {
     fontFamily : {
-      text : ['Roboto Mono', 'monospace']
+      text : ['Nunito Sans', 'sans-serif']
     },
     screens: {
       'mobile' : '375px',
