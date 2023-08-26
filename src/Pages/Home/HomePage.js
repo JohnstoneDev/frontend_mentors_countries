@@ -1,16 +1,17 @@
-import { ImageCard } from "../../Components/ImageCard/ImageCard"
+import { SearchBar } from "../../Components/Filtering/SearchBar"
+import { FilterDropDown } from "../../Components/Filtering/FilterDropDown/FilterDropDown"
+import { CountriesContainer } from "../../Components/CountriesContainer/CountriesContainer"
 
 
 export const HomePage = () => {
 	return (
-		<div className="text-center font-semibold flex flex-col gap-8">
-			<h1 className="text-3xl">Frontend Mentor Countries Challenge</h1>
-			<div className="desktop:grid desktop:grid-cols-2 mobile:flex mobile:flex-col">
-				<ImageCard />
-				<ImageCard />
-				<ImageCard />
-				<ImageCard />
+		<div className="space-y-4">
+			<div
+				className="desktop:flex desktop:flex-row mobile:flex mobile:flex-col desktop:items-center justify-between p-2.5 m-2.5">
+				<SearchBar />
+				<FilterDropDown />
 			</div>
+			<CountriesContainer />
 		</div>
 	)
 }
