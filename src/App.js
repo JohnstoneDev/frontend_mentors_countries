@@ -1,20 +1,12 @@
-import './App.css';
 import { Paths } from './Routes/Routes';
-
-import {
-  useContext
-} from "react"
-
-import { CountriesContext } from './Contexts/DataContext/DataContext';
+import { NavBar } from './Components/Navigation/NavBar';
 
 function App() {
-  const context = useContext(CountriesContext)
-
-  console.log(context);
-
   return (
     <div
-      className="bg-very-dark-blue text-white h-full min-h-screen">
+      className="bg-very-dark-blue text-white h-full min-h-screen min-w-screen overflow-hidden font-medium font-text
+      mobile:text-sm desktop:text-lg">
+      <NavBar />
       <Paths />
     </div>
   );
