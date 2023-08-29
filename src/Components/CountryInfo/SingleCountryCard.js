@@ -1,5 +1,5 @@
 import { BackButton } from "../Navigation/BackButton"
-import { SplitNumber } from "../../Actions/FindCountry"
+import { SplitNumber, FindCountryAlpha3Code } from "../../Actions/FindCountry"
 
 // presentational component to help style a heading that has a span
 export const HeadingWithSpan = ({ descriptor, info }) => {
@@ -27,15 +27,21 @@ const DisplayNameFromObjArray = ({ arr, descriptor }) => {
 
 // presentational component to help style borders
 const BorderDisplay = ({ borders }) => {
+	let borderNames = []
+
+	borders.forEach(brd => {
+		const name = FindCountryAlpha3Code(brd)
+		borderNames.push(name)
+	});
 
 	return (
-		<div className="mobile:grid mobile:gap-6 desktop:flex items-center">
+		<div className="mobile:grid mobile:gap-6 desktop:flex items-center shrink">
 			<span className="font-semibold"> Border Countries: </span>
-				<div className="desktop:flex gap-4 flex-grow mobile:grid mobile:grid-cols-3">
-					{ borders.map(border =>
+				<div className="desktop:flex gap-4 flex-grow mobile:grid mobile:grid-cols-3 items-center">
+					{ borderNames.map(border =>
 					<h6
-					className="p-1.5 rounded-md w-24 shadow-lg bg-dark-blue font-normal text-center"
-					key={borders.indexOf(border)}>{border}</h6>)}
+					className="py-3 max-h-fit rounded-md shadow-2xl shadow-dark-blue bg-dark-blue font-normal text-center"
+					key={borderNames.indexOf(border)}>{border}</h6>)}
 				</div>
 		</div>
 	)
@@ -53,12 +59,13 @@ export const SingleCountryCard = ({...country}) => {
 	return (
 		<div className="space-y-16">
 			<BackButton />
-			<div className="desktop:grid desktop:grid-cols-2 min-h-fit">
-				<img src={flag} alt=""  className="rounded-sm max-h-96 w-fit object-contain"/>
+			<div className="desktop:grid desktop:grid-cols-2 items-start justify-around">
+				<img src={flag} alt="" className="rounded-md h-4/5 w-fit object-contain align-middle"/>
 
 				<section className="flex flex-col gap-8 justify-between pt-6">
 					<h1 className="text-3xl font-extrabold">{name}</h1>
-					<article className="flex mobile:flex-col desktop:gap-8 mobile:gap-12 justify-between font-normal">
+					<article className="desktop:flex desktop:gap-8 max-mobile:gap-12 max-mobile:flex-col mobile:flex-col
+					justify-between font-normal">
 						<div className="space-y-3">
 							<HeadingWithSpan descriptor={"Native Name"} info={nativeName}/>
 							<HeadingWithSpan descriptor={"Population"} info={SplitNumber(population)}/>
