@@ -4,7 +4,7 @@ import { SplitNumber, FindCountryAlpha3Code } from "../../Actions/FindCountry"
 // presentational component to help style a heading that has a span
 export const HeadingWithSpan = ({ descriptor, info }) => {
 	return(
-		<h4><span className="font-semibold">{descriptor}:</span> {info}</h4>
+		<h4 className="space-y-2"><span className="font-semibold">{descriptor}:</span> {info}</h4>
 	)
 }
 
@@ -37,10 +37,10 @@ const BorderDisplay = ({ borders }) => {
 	return (
 		<div className="mobile:grid mobile:gap-6 desktop:flex items-center shrink">
 			<span className="font-semibold"> Border Countries: </span>
-				<div className="desktop:flex gap-4 flex-grow mobile:grid mobile:grid-cols-3 items-center">
+				<div className="desktop:flex gap-6 mobile:grid mobile:grid-cols-3 items-center max-mobile:grid max-mobile:grid-cols-2">
 					{ borderNames.map(border =>
 					<h6
-					className="py-3 max-h-fit rounded-md shadow-2xl shadow-dark-blue bg-dark-blue font-normal text-center"
+					className="p-1.5 min-h-fit min-w-fit rounded-md shadow-2xl shadow-dark-blue bg-dark-blue font-normal text-center"
 					key={borderNames.indexOf(border)}>{border}</h6>)}
 				</div>
 		</div>
@@ -66,7 +66,7 @@ export const SingleCountryCard = ({...country}) => {
 					<h1 className="text-3xl font-extrabold">{name}</h1>
 					<article className="desktop:flex desktop:gap-8 max-mobile:gap-12 max-mobile:flex-col mobile:flex-col
 					justify-between font-normal">
-						<div className="space-y-3">
+						<div className="space-y-4">
 							<HeadingWithSpan descriptor={"Native Name"} info={nativeName}/>
 							<HeadingWithSpan descriptor={"Population"} info={SplitNumber(population)}/>
 							<HeadingWithSpan descriptor={"Region"} info={region}/>
@@ -74,7 +74,7 @@ export const SingleCountryCard = ({...country}) => {
 							<HeadingWithSpan descriptor={"Capital"} info={capital}/>
 						</div>
 
-						<div className="space-y-3">
+						<div className="space-y-4">
 							<HeadingWithSpan descriptor={"Top Level Domain"} info={topLevelDomain}/>
 							 <DisplayNameFromObjArray arr={currencies === undefined ? [] : currencies} descriptor={"Currencies"} />
 							 <DisplayNameFromObjArray arr={languages === undefined ? [] : languages} descriptor={"Languages"} />
