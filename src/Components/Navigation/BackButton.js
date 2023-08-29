@@ -8,7 +8,7 @@ export const BackButton = () => {
 
 	return (
 		<button
-			className="text-lg rounded-md p-2 bg-dark-blue text-white flex items-center justify-center gap-2 w-[130px] shadow-xl"
+			className="text-lg rounded-md p-1 bg-dark-blue text-white flex items-center justify-center gap-2 w-[130px] shadow-xl"
 			onClick={() => navigate(-1)}>
 			<ion-icon name="arrow-back-outline"></ion-icon>
 			<span>Back</span>
